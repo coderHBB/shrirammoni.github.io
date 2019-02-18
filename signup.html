@@ -24,50 +24,54 @@
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
-<style>
-  body {
-    margin: 0;
-    font-family: Arial;
-    font-size: 17px;
-  }
-
-  #myVideo {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    min-width: 100%;
-    min-height: 100%;
-  }
-
-  /* Add some content at the bottom of the video/page */
-  .content {
-    position: fixed;
-    width: 100%;
-  }
-
-  #login-bg{
-    border: 1px solid;
-    padding: 10px;
-    box-shadow: 5px 10px red;
-  }
-</style>
-
     <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
+
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial;
+        font-size: 17px;
+      }
+
+      #myVideo {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+      }
+
+      /* Add some content at the bottom of the video/page */
+      .content {
+        position: fixed;
+        width: 100%;
+      }
+
+      #login-bg{
+        border: 1px solid;
+        padding: 10px;
+        box-shadow: 5px 10px red;
+      }
+    </style>
 </head>
-<body>
+<body class="bg-dark">
   <!-- The video -->
   <video autoplay muted loop id="myVideo">
     <source src="src/bg.mp4" type="video/mp4">
-  </video>
-  <div class="content">
+    </video>
+    <div class="content">
     <div class="sufee-login d-flex align-content-center flex-wrap">
         <div class="container">
             <div class="login-content">
                 <div class="login-logo">
-                  <img class="align-content" src="images/logo.png" alt="">
+                        <img class="align-content" src="images/logo.png" alt="">
                 </div>
-                  <div class="login-form">
+                <div class="login-form">
                     <form>
+                        <div class="form-group">
+                            <label>User Name</label>
+                            <input type="email" class="form-control" placeholder="User Name">
+                        </div>
                         <div class="form-group">
                             <label>Email address</label>
                             <input type="email" class="form-control" placeholder="Email">
@@ -78,29 +82,25 @@
                         </div>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox"> Remember Me
+                                <input type="checkbox"> Agree the terms and policy
                             </label>
-                            <label class="pull-right">
-                                <a href="#">Forgotten Password?</a>
-                            </label>
-
                         </div>
-                        <a href="index.html" button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30">Sign in</button></a>
+                        <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Register</button>
                         <div class="social-login-content">
                             <div class="social-button">
-                                <button type="button" class="btn social facebook btn-flat btn-addon mb-3"><i class="ti-facebook"></i>Sign in with facebook</button>
-                                <button type="button" class="btn social twitter btn-flat btn-addon mt-2"><i class="ti-twitter"></i>Sign in with twitter</button>
+                                <button type="button" class="btn social facebook btn-flat btn-addon mb-3"><i class="ti-facebook"></i>Register with facebook</button>
+                                <button type="button" class="btn social twitter btn-flat btn-addon mt-2"><i class="ti-twitter"></i>Register with twitter</button>
                             </div>
                         </div>
                         <div class="register-link m-t-15 text-center">
-                            <p>Don't have account ? <a href="signup.html"> Sign Up Here</a></p>
+                            <p>Already have account ? <a href="index.html"> Sign in</a></p>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-  </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
