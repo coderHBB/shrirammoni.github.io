@@ -76,6 +76,35 @@
         #cellPaiChart {
             height: 160px;
         }
+
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            font-family: Verdana, Geneva, sans-serif;
+            font-size: 18px;
+            background-color: #CCC;
+        }
+
+        .float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #0C9;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 3;
+        }
+
+        .my-float {
+            margin-top: 22px;
+        }
     </style>
 </head>
 
@@ -200,6 +229,9 @@
         </header>
         <!-- /#header -->
         <!-- Content -->
+        <a href="#" class="float">
+            <i class="fa fa-plus my-float"></i>
+        </a>
         <div class="content">
             <!-- Animated -->
             <div class="animated fadeIn">
@@ -280,66 +312,186 @@
 
                 <!-- Chart -->
                 <div class="row">
-                  <div class="col-lg-3 col-md-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <strong class="card-title">January 2019</strong>
-                        </div>
-                        <div class="card-body">
-                            <p><button type="button" class="btn btn-secondary btn-lg btn-block">Assigned - <span class="badge badge-light">20</span></button></p>
-                            <p><button type="button" class="btn btn-primary btn-lg btn-block">In Progress - <span class="badge badge-light">5</span></button></p>
-                            <p><button type="button" class="btn btn-info btn-lg btn-block">Delayed - <span class="badge badge-light">3</span></button></p>
-                            <p><button type="button" class="btn btn-warning btn-lg btn-block">On hold - <span class="badge badge-light">5</span></button></p>
-                            <p><button type="button" class="btn btn-danger btn-lg btn-block">Cancelled - <span class="badge badge-light">2</span></button></p>
-                            <p><button type="button" class="btn btn-success btn-lg btn-block">Completed - <span class="badge badge-light">5</span></button></p>
-                        </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-3 col-md-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <strong class="card-title">January 2019</strong>
-                        </div>
-                        <div class="card-body">
-                            <p><button type="button" class="btn btn-secondary btn-lg btn-block">Assigned - <span class="badge badge-light">20</span></button></p>
-                            <p><button type="button" class="btn btn-primary btn-lg btn-block">In Progress - <span class="badge badge-light">5</span></button></p>
-                            <p><button type="button" class="btn btn-info btn-lg btn-block">Delayed - <span class="badge badge-light">3</span></button></p>
-                            <p><button type="button" class="btn btn-warning btn-lg btn-block">On hold - <span class="badge badge-light">5</span></button></p>
-                            <p><button type="button" class="btn btn-danger btn-lg btn-block">Cancelled - <span class="badge badge-light">2</span></button></p>
-                            <p><button type="button" class="btn btn-success btn-lg btn-block">Completed - <span class="badge badge-light">5</span></button></p>
-                        </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-3 col-md-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <strong class="card-title">January 2019</strong>
-                        </div>
-                        <div class="card-body">
-                            <p><button type="button" class="btn btn-secondary btn-lg btn-block">Assigned - <span class="badge badge-light">20</span></button></p>
-                            <p><button type="button" class="btn btn-primary btn-lg btn-block">In Progress - <span class="badge badge-light">5</span></button></p>
-                            <p><button type="button" class="btn btn-info btn-lg btn-block">Delayed - <span class="badge badge-light">3</span></button></p>
-                            <p><button type="button" class="btn btn-warning btn-lg btn-block">On hold - <span class="badge badge-light">5</span></button></p>
-                            <p><button type="button" class="btn btn-danger btn-lg btn-block">Cancelled - <span class="badge badge-light">2</span></button></p>
-                            <p><button type="button" class="btn btn-success btn-lg btn-block">Completed - <span class="badge badge-light">5</span></button></p>
-                        </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-3 col-md-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <strong class="card-title">January 2019</strong>
-                        </div>
-                        <div class="card-body">
-                          <p>Assigned - 10</p>
-                          <p>In progress - 10</p>
-                          <p>Delayed - 10</p>
-                          <p>On hold - 10</p>
-                          <p>Cancelled - 10</p>
-                          <p>Completed - 10</p>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">February 2019</strong>
+                            </div>
+                            <div class="card-body">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="h4 mb-0">
+                                            +<span class="count">12</span>
+                                        </div>
+                                        <small class="text-muted text-uppercase font-weight-bold">In Progress</small>
+                                        <div class="progress progress-xs mt-3 mb-0 bg-flat-color-2" style="width: 12%; height: 5px;"></div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="h4 mb-0">
+                                            +<span class="count">7</span>
+                                        </div>
+                                        <small class="text-muted text-uppercase font-weight-bold">Delayed</small>
+                                        <div class="progress progress-xs mt-3 mb-0 bg-flat-color-3" style="width: 7%; height: 5px;"></div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="h4 mb-0">
+                                            +<span class="count">10</span>
+                                        </div>
+                                        <small class="text-muted text-uppercase font-weight-bold">Completed</small>
+                                        <div class="progress progress-xs mt-3 mb-0 bg-flat-color-5" style="width: 10%; height: 5px;"></div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="h4 mb-0">
+                                            +<span class="count">33</span>
+                                        </div>
+                                        <small class="text-muted text-uppercase font-weight-bold">Cancelled</small>
+                                        <div class="progress progress-xs mt-3 mb-0 bg-flat-color-4" style="width: 33%; height: 5px;"></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                  </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">February 2019</strong>
+                            </div>
+                            <div class="card-body">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="h4 mb-0">
+                                            +<span class="count">12</span>
+                                        </div>
+                                        <small class="text-muted text-uppercase font-weight-bold">In Progress</small>
+                                        <div class="progress progress-xs mt-3 mb-0 bg-flat-color-2" style="width: 12%; height: 5px;"></div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="h4 mb-0">
+                                            +<span class="count">7</span>
+                                        </div>
+                                        <small class="text-muted text-uppercase font-weight-bold">Delayed</small>
+                                        <div class="progress progress-xs mt-3 mb-0 bg-flat-color-3" style="width: 7%; height: 5px;"></div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="h4 mb-0">
+                                            +<span class="count">10</span>
+                                        </div>
+                                        <small class="text-muted text-uppercase font-weight-bold">Completed</small>
+                                        <div class="progress progress-xs mt-3 mb-0 bg-flat-color-5" style="width: 10%; height: 5px;"></div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="h4 mb-0">
+                                            +<span class="count">33</span>
+                                        </div>
+                                        <small class="text-muted text-uppercase font-weight-bold">Cancelled</small>
+                                        <div class="progress progress-xs mt-3 mb-0 bg-flat-color-4" style="width: 33%; height: 5px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">February 2019</strong>
+                            </div>
+                            <div class="card-body">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="h4 mb-0">
+                                            +<span class="count">12</span>
+                                        </div>
+                                        <small class="text-muted text-uppercase font-weight-bold">In Progress</small>
+                                        <div class="progress progress-xs mt-3 mb-0 bg-flat-color-2" style="width: 12%; height: 5px;"></div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="h4 mb-0">
+                                            +<span class="count">7</span>
+                                        </div>
+                                        <small class="text-muted text-uppercase font-weight-bold">Delayed</small>
+                                        <div class="progress progress-xs mt-3 mb-0 bg-flat-color-3" style="width: 7%; height: 5px;"></div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="h4 mb-0">
+                                            +<span class="count">10</span>
+                                        </div>
+                                        <small class="text-muted text-uppercase font-weight-bold">Completed</small>
+                                        <div class="progress progress-xs mt-3 mb-0 bg-flat-color-5" style="width: 10%; height: 5px;"></div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="h4 mb-0">
+                                            +<span class="count">33</span>
+                                        </div>
+                                        <small class="text-muted text-uppercase font-weight-bold">Cancelled</small>
+                                        <div class="progress progress-xs mt-3 mb-0 bg-flat-color-4" style="width: 33%; height: 5px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">February 2019</strong>
+                            </div>
+                            <div class="card-body">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="h4 mb-0">
+                                            +<span class="count">12</span>
+                                        </div>
+                                        <small class="text-muted text-uppercase font-weight-bold">In Progress</small>
+                                        <div class="progress progress-xs mt-3 mb-0 bg-flat-color-2" style="width: 12%; height: 5px;"></div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="h4 mb-0">
+                                            +<span class="count">7</span>
+                                        </div>
+                                        <small class="text-muted text-uppercase font-weight-bold">Delayed</small>
+                                        <div class="progress progress-xs mt-3 mb-0 bg-flat-color-3" style="width: 7%; height: 5px;"></div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="h4 mb-0">
+                                            +<span class="count">10</span>
+                                        </div>
+                                        <small class="text-muted text-uppercase font-weight-bold">Completed</small>
+                                        <div class="progress progress-xs mt-3 mb-0 bg-flat-color-5" style="width: 10%; height: 5px;"></div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="h4 mb-0">
+                                            +<span class="count">33</span>
+                                        </div>
+                                        <small class="text-muted text-uppercase font-weight-bold">Cancelled</small>
+                                        <div class="progress progress-xs mt-3 mb-0 bg-flat-color-4" style="width: 33%; height: 5px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Chart -->
@@ -562,11 +714,12 @@
         var myLineChart = new Chart(ctxL, {
             type: 'line',
             data: {
-                labels: ["January", "February", "March", "April", "May", "June", "July","August","September",
-              "October","November","December"],
+                labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September",
+                    "October", "November", "December"
+                ],
                 datasets: [{
                     label: "Toolkit Data",
-                    data: [3, 5, 10, 18, 55, 76, 98, 200,460,688,770,809],
+                    data: [3, 5, 10, 18, 55, 76, 98, 200, 460, 688, 770, 809],
                     backgroundColor: [
                         'rgba(105, 0, 132, .2)',
                     ],
@@ -574,18 +727,17 @@
                         'rgba(200, 99, 132, .7)',
                     ],
                     borderWidth: 2
-                },
-              {
-                label: "Asset Data",
-                data: [20,70,180,350,580,950,1400,1780,2090,2300,2490,2700],
-                backgroundColor: [
-                    'rgba(9, 184, 166, .2)',
-                ],
-                borderColor: [
-                    'rgba(9, 27, 184, .7)',
-                ],
-                borderWidth: 2
-              }]
+                }, {
+                    label: "Asset Data",
+                    data: [20, 70, 180, 350, 580, 950, 1400, 1780, 2090, 2300, 2490, 2700],
+                    backgroundColor: [
+                        'rgba(9, 184, 166, .2)',
+                    ],
+                    borderColor: [
+                        'rgba(9, 27, 184, .7)',
+                    ],
+                    borderWidth: 2
+                }]
             },
             options: {
                 responsive: true,
