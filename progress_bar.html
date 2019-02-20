@@ -27,7 +27,6 @@
     <link rel="stylesheet" href="assets/css/lib/datatable/dataTables.bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/main.css">
-
     <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
     <link href="https://cdn.jsdelivr.net/npm/chartist@0.11.0/dist/chartist.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/jqvmap@1.5.1/dist/jqvmap.min.css" rel="stylesheet">
@@ -36,7 +35,7 @@
     <link href="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.css" rel="stylesheet" />
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="assets/css/table_style.css">
+
 
     <style>
         #weatherWidget .currentDesc {
@@ -156,22 +155,15 @@
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="dashboard.html"><i class="menu-icon fa fa-laptop"></i>Dashboard & Analytics </a>
+                        <a href="index.html"><i class="menu-icon fa fa-laptop"></i>Dashboard & Analytics </a>
                     </li>
                     <li class="menu-title">Items</li>
                     <!-- /.menu-title -->
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>New Request </a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-id-badge"></i><a href="scene_request.html">Scenes</a></li>
-                            <li><i class="fa fa-bars"></i><a href="">Products</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>Tracker</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-id-badge"></i><a href="toolkit_tracker.html">Products</a></li>
-                            <li><i class="fa fa-bars"></i><a href="asset_tracker.html">Scene</a></li>
+                            <li><i class="fa fa-id-badge"></i><a href="#">Products</a></li>
+                            <li><i class="fa fa-bars"></i><a href="#">Scene</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
@@ -284,70 +276,8 @@
                 <div class="row">
                   <div class="col-lg-12">
                       <div class="card">
-                          <div class="card-header">
-                              <strong class="card-title">Sales Report - January 2019</strong>
-                          </div>
-                          <div class="table-stats order-table ov-h">
-                              <table class="table" id = "table_detail">
-                                  <thead>
-                                      <tr>
-                                          <th>HBB ID</th>
-                                          <th>SR#</th>
-                                          <th>Priority</th>
-                                          <th>Uploaded On</th>
-                                          <th>Required by</th>
-                                          <th>Status</th>
-                                      </tr>
-                                  </thead>
-                                  <tbody>
-                                      <tr>
-                                          <td> LCADTK0131 </td>
-                                          <td> AN181012-SR1 </td>
-                                          <td> <span class="badge badge-danger">High</span> </td>
-                                          <td> 04/01/2019 </td>
-                                          <td> 04/02/2019 </td>
-                                          <td>
-                                              <button type="button" span class="badge badge-complete" onclick="show_hide_row('hidden_row1');">Iterations Shared</span></button>
-                                          </td>
-                                          <tr id="hidden_row1" class="hidden_row">
-                                            <td colspan=6>
-                                              <div class="progress-bar-wrapper">
-                                            </td>
-                                          </tr>
-                                      </tr>
-                                      <tr>
-                                          <td> LCADTK0131 </td>
-                                          <td> AN181012-SR1 </td>
-                                          <td> <span class="badge badge-warning">Medium</span> </td>
-                                          <td> 04/01/2019 </td>
-                                          <td> 04/02/2019 </td>
-                                          <td>
-                                              <button type="button" span class="badge badge-complete" onclick="show_hide_row('hidden_row3');">Completed</span></button>
-                                          </td>
-                                          <tr id="hidden_row3" class="hidden_row">
-                                            <td colspan=6>
-                                              <div class="progress-bar-wrapper2">
-                                            </td>
-                                          </tr>
-                                      </tr>
-                                      <tr>
-                                          <td> LCADTK0131 </td>
-                                          <td> AN181012-SR1 </td>
-                                          <td> <span class="badge badge-success">Low</span> </td>
-                                          <td> 04/01/2019 </td>
-                                          <td> 04/02/2019 </td>
-                                          <td>
-                                              <button type="button" span class="badge badge-complete" onclick="show_hide_row('hidden_row2');">Final Shared</span></button>
-                                          </td>
-                                          <tr id="hidden_row2" class="hidden_row">
-                                            <td colspan=6>
-                                              <div class="progress-bar-wrapper3">
-                                            </td>
-                                          </tr>
-                                      </tr>
-                                  </tbody>
-                              </table>
-                          </div> <!-- /.table-stats -->
+                        <div class="progress-bar-wrapper">
+                        </div>
                       </div>
                   </div>
                 </div>
@@ -361,7 +291,6 @@
             <div class="footer-inner bg-white">
                 <div class="row">
                     <div class="col-sm-6">
-                        Copyright &copy; 2019 House of blue beans
                     </div>
                     <div class="col-sm-6 text-right">
                         Designed by <a href="#">HOBB Devs</a>
@@ -394,22 +323,10 @@
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.js"></script>
     <script src="assets/js/init/fullcalendar-init.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
-
     <script src="assets/js/progress-bar.js"></script>
     <script src="assets/js/app.js"></script>
-    <script src="assets/js/app2.js"></script>
-    <script src="assets/js/app1.js"></script>
 
     <script>
-
-    function show_hide_row(row)
-    {
-     $("#"+row).toggle();
-    }
-
     $(document).ready(function(){
       $('[data-toggle="tooltip"]').tooltip();
     });

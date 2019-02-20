@@ -1,0 +1,886 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>HOBB-LOWES</title>
+    <meta name="description" content="HOBB-LOWES">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="images/hobb.png">
+    <link rel="shortcut icon" href="images/hobb.png">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.0/css/flag-icon.min.css">
+
+    <link rel="stylesheet" href="assets/css/cs-skin-elastic.css">
+    <link rel="stylesheet" href="assets/css/lib/datatable/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
+    <link href="https://cdn.jsdelivr.net/npm/chartist@0.11.0/dist/chartist.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/jqvmap@1.5.1/dist/jqvmap.min.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/weathericons@2.1.0/css/weather-icons.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.css" rel="stylesheet" />
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+
+    <style>
+        #weatherWidget .currentDesc {
+            color: #ffffff!important;
+        }
+
+        .traffic-chart {
+            min-height: 335px;
+        }
+
+        #flotPie1 {
+            height: 150px;
+        }
+
+        #flotPie1 td {
+            padding: 3px;
+        }
+
+        #flotPie1 table {
+            top: 20px!important;
+            right: -10px!important;
+        }
+
+        .chart-container {
+            display: table;
+            min-width: 270px;
+            text-align: left;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        #flotLine5 {
+            height: 105px;
+        }
+
+        #flotBarChart {
+            height: 150px;
+        }
+
+        #cellPaiChart {
+            height: 160px;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            font-family: Verdana, Geneva, sans-serif;
+            font-size: 18px;
+            background-color: #CCC;
+        }
+
+        .float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #0C9;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 3;
+        }
+
+        .my-float {
+            margin-top: 22px;
+        }
+
+        .gallery {
+            -webkit-column-count: 3;
+            -moz-column-count: 3;
+            column-count: 3;
+            -webkit-column-width: 33%;
+            -moz-column-width: 33%;
+            column-width: 33%;
+        }
+
+        .gallery .pics {
+            -webkit-transition: all 350ms ease;
+            transition: all 350ms ease;
+        }
+
+        .gallery .animation {
+            -webkit-transform: scale(1);
+            -ms-transform: scale(1);
+            transform: scale(1);
+        }
+
+        @media (max-width: 450px) {
+            .gallery {
+                -webkit-column-count: 1;
+                -moz-column-count: 1;
+                column-count: 1;
+                -webkit-column-width: 100%;
+                -moz-column-width: 100%;
+                column-width: 100%;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .btn.filter {
+                padding-left: 1.1rem;
+                padding-right: 1.1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Left Panel -->
+    <aside id="left-panel" class="left-panel">
+        <nav class="navbar navbar-expand-sm navbar-default">
+            <div id="main-menu" class="main-menu collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="dashboard.html"><i class="menu-icon fa fa-laptop"></i>Dashboard & Analytics </a>
+                    </li>
+                    <li class="menu-title">Items</li>
+                    <!-- /.menu-title -->
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>New Request </a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-id-badge"></i><a href="scene_request.html">Scenes</a></li>
+                            <li><i class="fa fa-bars"></i><a href="">Products</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>Tracker</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-id-badge"></i><a href="asset_tracker.html">Products</a></li>
+                            <li><i class="fa fa-bars"></i><a href="toolkit_tracker.html">Scene</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Assets </a>
+                        <!-- <ul class="sub-menu children dropdown-menu"> -->
+                        <!-- <li><i class="fa fa-table"></i><a href="tables-basic.html">Basic Table</a></li> -->
+                        <!-- <li><i class="fa fa-table"></i><a href="tables-data.html">Data Table</a></li> -->
+                        <!-- </ul> -->
+                    </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Props</a>
+                        <!-- <ul class="sub-menu children dropdown-menu"> -->
+                        <!-- <li><i class="menu-icon fa fa-th"></i><a href="forms-basic.html">Basic Form</a></li> -->
+                        <!-- <li><i class="menu-icon fa fa-th"></i><a href="forms-advanced.html">Advanced Form</a></li> -->
+                        <!-- </ul> -->
+                    </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Image Gallery</a>
+                        <!-- <ul class="sub-menu children dropdown-menu"> -->
+                        <!-- <li><i class="menu-icon fa fa-th"></i><a href="forms-basic.html">Basic Form</a></li> -->
+                        <!-- <li><i class="menu-icon fa fa-th"></i><a href="forms-advanced.html">Advanced Form</a></li> -->
+                        <!-- </ul> -->
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+    </aside>
+    <!-- /#left-panel -->
+    <!-- Right Panel -->
+    <div id="right-panel" class="right-panel">
+        <!-- Header-->
+        <header id="header" class="header">
+            <div class="top-left">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="./"><img src="images/logo.png" alt="Logo"></a>
+                    <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a>
+                    <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
+                </div>
+            </div>
+            <div class="top-right">
+                <div class="header-menu">
+                    <div class="header-left">
+                        <button class="search-trigger"><i class="fa fa-search"></i></button>
+                        <div class="form-inline">
+                            <form class="search-form">
+                                <input class="form-control mr-sm-2" type="text" placeholder="Search ..." aria-label="Search">
+                                <button class="search-close" type="submit"><i class="fa fa-close"></i></button>
+                            </form>
+                        </div>
+
+                        <div class="dropdown for-notification">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="notification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-bell"></i>
+                                <span class="count bg-danger">1</span>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="notification">
+                                <p class="red">You have 1 Notification</p>
+                                <a class="dropdown-item media" href="#">
+                                    <i class="fa fa-check"></i>
+                                    <p>Completed Bogey Model #1234.</p>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!--<div class="dropdown for-message">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="message" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-envelope"></i>
+                                <span class="count bg-primary">1</span>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="message">
+                                <p class="red">You have 1 Mail</p>
+                                <a class="dropdown-item media" href="#">
+                                    <span class="photo media-left"><img alt="avatar" src="images/avatar/1.jpg"></span>
+                                    <div class="message media-body">
+                                        <span class="name float-left">Ram</span>
+                                        <span class="time float-right">Just now</span>
+                                        <p>BathDropzone_WhiteFloating Draft Renders</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div> -->
+                    </div>
+
+                    <div class="user-area dropdown float-right">
+                        <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img class="user-avatar rounded-circle" src="images/admin.jpg" alt="User Avatar">
+                        </a>
+
+                        <div class="user-menu dropdown-menu">
+                            <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
+
+                            <a class="nav-link" href="#"><i class="fa fa- user"></i>Notifications <span class="count">13</span></a>
+
+                            <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
+
+                            <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+        <!-- /#header -->
+        <!-- Content -->
+        <div class="content">
+            <!-- Animated -->
+            <div class="animated fadeIn">
+                <!-- Table -->
+                <div class="row">
+                  <div class="col-lg-6">
+                      <div class="card">
+                          <div class="card-header">
+                              <strong>Toolkit ID & Info</strong>
+                          </div>
+                          <div class="card-body card-block">
+                              <form action="#" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                  <div class="row form-group">
+                                      <div class="col col-md-3"><label for="text-input" class=" form-control-label">Toolkit Number(SR#)</label></div>
+                                      <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Text" class="form-control"><small class="form-text text-muted">This is a help text</small></div>
+                                  </div>
+                                  <div class="row form-group">
+                                      <div class="col col-md-3"><label for="text-input" class=" form-control-label">Project# / Job#</label></div>
+                                      <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Text" class="form-control"><small class="form-text text-muted">This is a help text</small></div>
+                                  </div>
+                                  <div class="row form-group">
+                                      <div class="col col-md-3"><label for="text-input" class=" form-control-label">ACM Name</label></div>
+                                      <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Text" class="form-control"><small class="form-text text-muted">This is a help text</small></div>
+                                  </div>
+                                  <div class="row form-group">
+                                      <div class="col col-md-3"><label for="email-input" class=" form-control-label">ACM Email</label></div>
+                                      <div class="col-12 col-md-9"><input type="email" id="email-input" name="email-input" placeholder="Enter Email" class="form-control"><small class="help-block form-text">Please enter your email</small></div>
+                                  </div>
+                                  <div class="row form-group">
+                                      <div class="col col-md-3"><label for="text-input" class=" form-control-label">Sent Date</label></div>
+                                      <div class="col-12 col-md-9"><input type="date" id="text-input" name="text-input" placeholder="Text" class="form-control"><small class="form-text text-muted">This is a help text</small></div>
+                                  </div>
+                                  <div class="row form-group">
+                                      <div class="col col-md-3"><label for="text-input" class=" form-control-label">Due Date</label></div>
+                                      <div class="col-12 col-md-9"><input type="date" id="text-input" name="text-input" placeholder="Text" class="form-control"><small class="form-text text-muted">This is a help text</small></div>
+                                  </div>
+                                  <div class="row form-group">
+                                      <div class="col col-md-3"><label for="file-input" class=" form-control-label">Document(if any)</label></div>
+                                      <div class="col-12 col-md-9"><input type="file" id="file-input" name="file-input" class="form-control-file"></div>
+                                  </div>
+                                  <div class="row form-group">
+                                      <div class="col col-md-3"><label for="text-input" class=" form-control-label">Special Instrcutions(if any)</label></div>
+                                      <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Text" class="form-control"><small class="form-text text-muted">This is a help text</small></div>
+                                  </div>
+                              </form>
+                          </div>
+                          <div class="card-footer">
+                              <button type="submit" class="btn btn-primary btn-sm">
+                                  <i class="fa fa-dot-circle-o"></i> Submit
+                              </button>
+                              <button type="reset" class="btn btn-danger btn-sm">
+                                  <i class="fa fa-ban"></i> Reset
+                              </button>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-6">
+                      <div class="card">
+                          <div class="card-header">
+                              <strong>Re-use Toolkit Details</strong>
+                          </div>
+                          <div class="card-body card-block">
+                              <form action="#" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                  <div class="row form-group">
+                                      <div class="col col-md-3"><label for="text-input" class=" form-control-label">Re-use Toolkit Number(SR#)</label></div>
+                                      <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Text" class="form-control"><small class="form-text text-muted">This is a help text</small></div>
+                                  </div>
+                                  <div class="row form-group">
+                                      <div class="col col-md-3"><label for="file-input" class=" form-control-label">Document(if any)</label></div>
+                                      <div class="col-12 col-md-9"><input type="file" id="file-input" name="file-input" class="form-control-file"></div>
+                                  </div>
+                                  <div class="row form-group">
+                                      <div class="col col-md-3"><label for="text-input" class=" form-control-label">Special Instrcutions(if any)</label></div>
+                                      <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Text" class="form-control"><small class="form-text text-muted">This is a help text</small></div>
+                                  </div>
+                              </form>
+                          </div>
+                          <div class="card-footer">
+                              <button type="submit" class="btn btn-primary btn-sm">
+                                  <i class="fa fa-dot-circle-o"></i> Submit
+                              </button>
+                              <button type="reset" class="btn btn-danger btn-sm">
+                                  <i class="fa fa-ban"></i> Reset
+                              </button>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-6">
+                      <div class="card">
+                          <div class="card-header">
+                              <strong>Floor Plan Specifications</strong>
+                          </div>
+                          <div class="card-body card-block">
+                              <form action="#" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                  <div class="row form-group">
+                                      <div class="col col-md-3"><label for="file-input" class=" form-control-label">Upload Floor Plan Image</label></div>
+                                      <div class="col-12 col-md-9"><input type="file" id="file-input" name="file-input" class="form-control-file"></div>
+                                  </div>
+                                  <div class="row form-group">
+                                      <div class="col col-md-3"><label for="text-input" class=" form-control-label">Room Length(in feet)</label></div>
+                                      <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Text" class="form-control"><small class="form-text text-muted">This is a help text</small></div>
+                                  </div>
+                                  <div class="row form-group">
+                                      <div class="col col-md-3"><label for="text-input" class=" form-control-label">Room Width(in feet)</label></div>
+                                      <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Text" class="form-control"><small class="form-text text-muted">This is a help text</small></div>
+                                  </div>
+                                  <div class="row form-group">
+                                      <div class="col col-md-3"><label for="text-input" class=" form-control-label">Room Height(in feet)</label></div>
+                                      <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Text" class="form-control"><small class="form-text text-muted">This is a help text</small></div>
+                                  </div>
+                                  <div class="row form-group">
+                                      <div class="col col-md-3"><label for="file-input" class=" form-control-label">Reference Image for product and prop placement</label></div>
+                                      <div class="col-12 col-md-9"><input type="file" id="file-input" name="file-input" class="form-control-file"></div>
+                                  </div>
+                                  <div class="row form-group">
+                                      <div class="col col-md-3"><label for="text-input" class=" form-control-label">Window Details</label></div>
+                                      <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Text" class="form-control"><small class="form-text text-muted">This is a help text</small></div>
+                                  </div>
+                                  <div class="row form-group">
+                                      <div class="col col-md-3"><label for="text-input" class=" form-control-label">Link to window 3d model</label></div>
+                                      <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Text" class="form-control"><small class="form-text text-muted">This is a help text</small></div>
+                                  </div>
+                                  <div class="row form-group">
+                                      <div class="col col-md-3"><label for="text-input" class=" form-control-label">Special Instrcutions(if any)</label></div>
+                                      <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Text" class="form-control"><small class="form-text text-muted">This is a help text</small></div>
+                                  </div>
+                                  <div class="row form-group">
+                                      <div class="col col-md-3"><label for="text-input" class=" form-control-label">Baseboard Details</label></div>
+                                      <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Text" class="form-control"><small class="form-text text-muted">This is a help text</small></div>
+                                  </div>
+                                  <div class="row form-group">
+                                      <div class="col col-md-3"><label for="text-input" class=" form-control-label">Link to baseboard 3d model</label></div>
+                                      <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Text" class="form-control"><small class="form-text text-muted">This is a help text</small></div>
+                                  </div>
+                                  <div class="row form-group">
+                                      <div class="col col-md-3"><label for="text-input" class=" form-control-label">Special Instrcutions(if any)</label></div>
+                                      <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Text" class="form-control"><small class="form-text text-muted">This is a help text</small></div>
+                                  </div>
+                                  <div class="row form-group">
+                                      <div class="col col-md-3"><label for="text-input" class=" form-control-label">Wall Paint Details</label></div>
+                                      <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Text" class="form-control"><small class="form-text text-muted">This is a help text</small></div>
+                                  </div>
+                                  <div class="row form-group">
+                                      <div class="col col-md-3"><label class=" form-control-label">Is wall paint applied to all walls?</label></div>
+                                      <div class="col col-md-9">
+                                          <div class="form-check">
+                                              <div class="radio">
+                                                  <label for="radio1" class="form-check-label ">
+                                                      <input type="radio" id="radio1" name="radios" value="option1" class="form-check-input">Yes
+                                                  </label>
+                                              </div>
+                                              <div class="radio">
+                                                  <label for="radio2" class="form-check-label ">
+                                                      <input type="radio" id="radio2" name="radios" value="option2" class="form-check-input">No
+                                                  </label>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="row form-group">
+                                      <div class="col col-md-3"><label for="text-input" class=" form-control-label">Link to wall colors</label></div>
+                                      <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Text" class="form-control"><small class="form-text text-muted">This is a help text</small></div>
+                                  </div>
+                                  <div class="row form-group">
+                                      <div class="col col-md-3"><label class=" form-control-label">Choose wall paint finish</label></div>
+                                      <div class="col col-md-9">
+                                          <div class="form-check">
+                                              <div class="radio">
+                                                  <label for="radio1" class="form-check-label ">
+                                                      <input type="radio" id="radio1" name="radios" value="option1" class="form-check-input">Matte
+                                                  </label>
+                                              </div>
+                                              <div class="radio">
+                                                  <label for="radio2" class="form-check-label ">
+                                                      <input type="radio" id="radio2" name="radios" value="option2" class="form-check-input">No
+                                                  </label>
+                                              </div>
+                                              <div class="radio">
+                                                  <label for="radio1" class="form-check-label ">
+                                                      <input type="radio" id="radio1" name="radios" value="option1" class="form-check-input">Semi Gloss
+                                                  </label>
+                                              </div>
+                                              <div class="radio">
+                                                  <label for="radio2" class="form-check-label ">
+                                                      <input type="radio" id="radio2" name="radios" value="option2" class="form-check-input">High Gloss
+                                                  </label>
+                                              </div>
+                                              <div class="radio">
+                                                  <label for="radio1" class="form-check-label ">
+                                                      <input type="radio" id="radio1" name="radios" value="option1" class="form-check-input">Metallic
+                                                  </label>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="row form-group">
+                                      <div class="col col-md-3"><label class=" form-control-label">Choose ceiling paint finish</label></div>
+                                      <div class="col col-md-9">
+                                          <div class="form-check">
+                                              <div class="radio">
+                                                  <label for="radio1" class="form-check-label ">
+                                                      <input type="radio" id="radio1" name="radios" value="option1" class="form-check-input">Matte
+                                                  </label>
+                                              </div>
+                                              <div class="radio">
+                                                  <label for="radio2" class="form-check-label ">
+                                                      <input type="radio" id="radio2" name="radios" value="option2" class="form-check-input">No
+                                                  </label>
+                                              </div>
+                                              <div class="radio">
+                                                  <label for="radio1" class="form-check-label ">
+                                                      <input type="radio" id="radio1" name="radios" value="option1" class="form-check-input">Semi Gloss
+                                                  </label>
+                                              </div>
+                                              <div class="radio">
+                                                  <label for="radio2" class="form-check-label ">
+                                                      <input type="radio" id="radio2" name="radios" value="option2" class="form-check-input">High Gloss
+                                                  </label>
+                                              </div>
+                                              <div class="radio">
+                                                  <label for="radio1" class="form-check-label ">
+                                                      <input type="radio" id="radio1" name="radios" value="option1" class="form-check-input">Metallic
+                                                  </label>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="row form-group">
+                                      <div class="col col-md-3"><label for="text-input" class=" form-control-label">Special Instrcutions(if any)</label></div>
+                                      <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Text" class="form-control"><small class="form-text text-muted">This is a help text</small></div>
+                                  </div>
+                                  <div class="row form-group">
+                                      <div class="col col-md-3"><label for="text-input" class=" form-control-label">Flooing Details</label></div>
+                                      <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Text" class="form-control"><small class="form-text text-muted">This is a help text</small></div>
+                                  </div>
+                                  <div class="row form-group">
+                                      <div class="col col-md-3"><label class=" form-control-label">Is the product sold at LOWES?</label></div>
+                                      <div class="col col-md-9">
+                                          <div class="form-check">
+                                              <div class="radio">
+                                                  <label for="radio1" class="form-check-label ">
+                                                      <input type="radio" id="radio1" name="radios" value="option1" class="form-check-input">Yes
+                                                  </label>
+                                              </div>
+                                              <div class="radio">
+                                                  <label for="radio2" class="form-check-label ">
+                                                      <input type="radio" id="radio2" name="radios" value="option2" class="form-check-input">No
+                                                  </label>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="row form-group">
+                                      <div class="col col-md-3"><label for="text-input" class=" form-control-label">Link to the flooring product</label></div>
+                                      <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Text" class="form-control"><small class="form-text text-muted">This is a help text</small></div>
+                                  </div>
+                                  <div class="row form-group">
+                                      <div class="col col-md-3"><label for="file-input" class=" form-control-label">Upload GO-By Pattern</label></div>
+                                      <div class="col-12 col-md-9"><input type="file" id="file-input" name="file-input" class="form-control-file"></div>
+                                  </div>
+                                  <div class="row form-group">
+                                      <div class="col col-md-3"><label for="text-input" class=" form-control-label">Special Instrcutions(if any)</label></div>
+                                      <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Text" class="form-control"><small class="form-text text-muted">This is a help text</small></div>
+                                  </div>
+                              </form>
+                          </div>
+                          <div class="card-footer">
+                              <button type="submit" class="btn btn-primary btn-sm">
+                                  <i class="fa fa-dot-circle-o"></i> Submit
+                              </button>
+                              <button type="reset" class="btn btn-danger btn-sm">
+                                  <i class="fa fa-ban"></i> Reset
+                              </button>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-6">
+                      <div class="card">
+                          <div class="card-header">
+                              <strong>Lighting Specifications</strong>
+                          </div>
+                          <div class="card-body card-block">
+                              <form action="#" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label class=" form-control-label">Would you like us to direct the lighting?</label></div>
+                                    <div class="col col-md-9">
+                                        <div class="form-check">
+                                            <div class="radio">
+                                                <label for="radio1" class="form-check-label ">
+                                                    <input type="radio" id="radio1" name="radios" value="option1" class="form-check-input">Yes
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label for="radio2" class="form-check-label ">
+                                                    <input type="radio" id="radio2" name="radios" value="option2" class="form-check-input">No
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label for="radio2" class="form-check-label ">
+                                                    <input type="radio" id="radio2" name="radios" value="option2" class="form-check-input">Partially
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label class=" form-control-label">Type of lighting</label></div>
+                                    <div class="col col-md-9">
+                                        <div class="form-check">
+                                            <div class="radio">
+                                                <label for="radio1" class="form-check-label ">
+                                                    <input type="radio" id="radio1" name="radios" value="option1" class="form-check-input">Diffused
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label for="radio2" class="form-check-label ">
+                                                    <input type="radio" id="radio2" name="radios" value="option2" class="form-check-input">Direct Sun
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label for="radio2" class="form-check-label ">
+                                                    <input type="radio" id="radio2" name="radios" value="option2" class="form-check-input">Mix of both
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label class=" form-control-label">Season</label></div>
+                                    <div class="col col-md-9">
+                                        <div class="form-check">
+                                            <div class="radio">
+                                                <label for="radio1" class="form-check-label ">
+                                                    <input type="radio" id="radio1" name="radios" value="option1" class="form-check-input">Spring
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label for="radio2" class="form-check-label ">
+                                                    <input type="radio" id="radio2" name="radios" value="option2" class="form-check-input">Fall
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label for="radio2" class="form-check-label ">
+                                                    <input type="radio" id="radio2" name="radios" value="option2" class="form-check-input">Winter
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label class=" form-control-label">Time of day</label></div>
+                                    <div class="col col-md-9">
+                                        <div class="form-check">
+                                            <div class="radio">
+                                                <label for="radio1" class="form-check-label ">
+                                                    <input type="radio" id="radio1" name="radios" value="option1" class="form-check-input">Morning
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label for="radio2" class="form-check-label ">
+                                                    <input type="radio" id="radio2" name="radios" value="option2" class="form-check-input">Evening
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label for="radio2" class="form-check-label ">
+                                                    <input type="radio" id="radio2" name="radios" value="option2" class="form-check-input">Night
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="file-multiple-input" class=" form-control-label">Lighting References</label></div>
+                                    <div class="col-12 col-md-9"><input type="file" id="file-multiple-input" name="file-multiple-input" multiple="" class="form-control-file"></div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Special Instrcutions(if any)</label></div>
+                                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Text" class="form-control"><small class="form-text text-muted">This is a help text</small></div>
+                                </div>
+                              </form>
+                          </div>
+                          <div class="card-footer">
+                              <button type="submit" class="btn btn-primary btn-sm">
+                                  <i class="fa fa-dot-circle-o"></i> Submit
+                              </button>
+                              <button type="reset" class="btn btn-danger btn-sm">
+                                  <i class="fa fa-ban"></i> Reset
+                              </button>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-6">
+                      <div class="card">
+                          <div class="card-header">
+                              <strong>Exterior Specifications</strong>
+                          </div>
+                          <div class="card-body card-block">
+                              <form action="#" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label class=" form-control-label">Would you like the windows to be?</label></div>
+                                    <div class="col col-md-9">
+                                        <div class="form-check">
+                                            <div class="radio">
+                                                <label for="radio1" class="form-check-label ">
+                                                    <input type="radio" id="radio1" name="radios" value="option1" class="form-check-input">Clear Glass
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label for="radio2" class="form-check-label ">
+                                                    <input type="radio" id="radio2" name="radios" value="option2" class="form-check-input">Over Exposed
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label for="radio2" class="form-check-label ">
+                                                    <input type="radio" id="radio2" name="radios" value="option2" class="form-check-input">Over Exposed White
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="file-multiple-input" class=" form-control-label">Exterior Scene References</label></div>
+                                    <div class="col-12 col-md-9"><input type="file" id="file-multiple-input" name="file-multiple-input" multiple="" class="form-control-file"></div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Special Instrcutions(if any)</label></div>
+                                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Text" class="form-control"><small class="form-text text-muted">This is a help text</small></div>
+                                </div>
+                              </form>
+                          </div>
+                          <div class="card-footer">
+                              <button type="submit" class="btn btn-primary btn-sm">
+                                  <i class="fa fa-dot-circle-o"></i> Submit
+                              </button>
+                              <button type="reset" class="btn btn-danger btn-sm">
+                                  <i class="fa fa-ban"></i> Reset
+                              </button>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-6">
+                      <div class="card">
+                          <div class="card-header">
+                              <strong>Camera Angle Specifications</strong>
+                          </div>
+                          <div class="card-body card-block">
+                              <form action="#" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label class=" form-control-label">Would you like us to direct the camera angles in the scene?</label></div>
+                                    <div class="col col-md-9">
+                                        <div class="form-check">
+                                            <div class="radio">
+                                                <label for="radio1" class="form-check-label ">
+                                                    <input type="radio" id="radio1" name="radios" value="option1" class="form-check-input">Yes
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label for="radio2" class="form-check-label ">
+                                                    <input type="radio" id="radio2" name="radios" value="option2" class="form-check-input">No
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label for="radio2" class="form-check-label ">
+                                                    <input type="radio" id="radio2" name="radios" value="option2" class="form-check-input">Partially
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">How many camera angles would you require?</label></div>
+                                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Text" class="form-control"><small class="form-text text-muted">This is a help text</small></div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="file-multiple-input" class=" form-control-label">Upload Camera Angle References</label></div>
+                                    <div class="col-12 col-md-9"><input type="file" id="file-multiple-input" name="file-multiple-input" multiple="" class="form-control-file"></div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Camera Angle Names</label></div>
+                                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Text" class="form-control"><small class="form-text text-muted">This is a help text</small></div>
+                                </div>
+                              </form>
+                          </div>
+                          <div class="card-footer">
+                              <button type="submit" class="btn btn-primary btn-sm">
+                                  <i class="fa fa-dot-circle-o"></i> Submit
+                              </button>
+                              <button type="reset" class="btn btn-danger btn-sm">
+                                  <i class="fa fa-ban"></i> Reset
+                              </button>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-6">
+                      <div class="card">
+                          <div class="card-header">
+                              <strong>Product Specifications</strong>
+                          </div>
+                          <div class="card-body card-block">
+                              <form action="#" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">No of products to be added</label></div>
+                                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Text" class="form-control"><small class="form-text text-muted">This is a help text</small></div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Link to products</label></div>
+                                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Text" class="form-control"><small class="form-text text-muted">This is a help text</small></div>
+                                </div>
+                              </form>
+                          </div>
+                          <div class="card-footer">
+                              <button type="submit" class="btn btn-primary btn-sm">
+                                  <i class="fa fa-dot-circle-o"></i> Submit
+                              </button>
+                              <button type="reset" class="btn btn-danger btn-sm">
+                                  <i class="fa fa-ban"></i> Reset
+                              </button>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-6">
+                      <div class="card">
+                          <div class="card-header">
+                              <strong>Prop Specifications</strong>
+                          </div>
+                          <div class="card-body card-block">
+                              <form action="#" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">No of products to be added</label></div>
+                                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Text" class="form-control"><small class="form-text text-muted">This is a help text</small></div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Link to products</label></div>
+                                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Text" class="form-control"><small class="form-text text-muted">This is a help text</small></div>
+                                </div>
+                              </form>
+                          </div>
+                          <div class="card-footer">
+                              <button type="submit" class="btn btn-primary btn-sm">
+                                  <i class="fa fa-dot-circle-o"></i> Submit
+                              </button>
+                              <button type="reset" class="btn btn-danger btn-sm">
+                                  <i class="fa fa-ban"></i> Reset
+                              </button>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+            </div>
+            <!-- .animated -->
+        </div>
+        <!-- /.content -->
+        <div class="clearfix"></div>
+        <!-- Footer -->
+        <footer class="site-footer">
+            <div class="footer-inner bg-white">
+                <div class="row">
+                    <div class="col-sm-6">
+                        Copyright &copy; 2019 House of blue beans
+                    </div>
+                    <div class="col-sm-6 text-right">
+                        Designed by <a href="#">HOBB Devs</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- /.site-footer -->
+    </div>
+    <!-- /#right-panel -->
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-match-height@0.7.2/dist/jquery.matchHeight.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <!--  Chart js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.7.3/dist/Chart.bundle.min.js"></script>
+    <script src="assets/js/init/chartjs-init.js"></script>
+    <!--Flot Chart-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery.flot@0.8.3/jquery.flot.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flot-spline@0.0.1/js/jquery.flot.spline.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/simpleweather@3.1.0/jquery.simpleWeather.min.js"></script>
+    <script src="assets/js/init/weather-init.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.js"></script>
+    <script src="assets/js/init/fullcalendar-init.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
+
+    <script>
+
+    function show_hide_row(row)
+    {
+     $("#"+row).toggle();
+    }
+
+    $(document).ready(function(){
+      $('[data-toggle="tooltip"]').tooltip();
+    });
+  </script>
+</body>
+
+</html>
