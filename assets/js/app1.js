@@ -3,19 +3,15 @@ ProgressBar.singleStepAnimation = 500;
 ProgressBar.init(
   [ 'Received by Hobb',
     'Awaiting additional inputs',
-    'Work initiated',
-    'Asset creation in progress',
-    'Scene setup in progress',
+    'Asset creation',
+    'Scene setup',
     'Drafts shared',
-    'Feedback pending',
-    'Iteration in progress',
+    'Iteration',
     'Iterations Shared',
-    'Feedback pending',
-    'Final in progress',
+    'Final',
     'Final Shared',
-    'Final delivered',
-    'Completed'
+    'Final delivered'
   ],
-  'Final Shared',
+  'Scene setup',
   'progress-bar-wrapper3' // created this optional parameter for container name (otherwise default container created)
 );
